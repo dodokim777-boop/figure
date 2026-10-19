@@ -14,7 +14,7 @@ NAME = 'fig_1_setup_schematic'
 def draw():
     G = np.array([-26.5, 28.0, 17.1]); zW, yF = 67.0, -11.6
     Ct = np.array([-32.0, 24.9, 108.2]); Cf = np.array([-27.3, -65.1, 42.6])
-    tank = np.array([[-66.5, 13.5], [yF, 68.4], [0, 75]])
+    tank = np.array([[-66.5, 13.5], [yF, 68.4], [0, 66]])
     zh, zH = 25, 25
     fs = CONFIG['font_size'] - 1
     fig = new_fig('double', 9.0)
