@@ -1,35 +1,34 @@
 # Report figures
 
-Figures for the report *3D Object Tracking Tool for Underwater Gripper Experiments*: Fig. 1, 2, B1 (diagrams) and E1–E3 (data).
+Figures for the report *3D Object Tracking Tool for Underwater Gripper Experiments*. One Python file per figure.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/dodokim777-boop/figure/blob/main/workflow/05_report_figures.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/dodokim777-boop/figure/blob/main/report_figures.ipynb)
 
-| File | Content |
-|---|---|
-| `report_figures/make_figures.py` | All figures. Format settings in `CONFIG` at the top; one `fig_*` function per figure |
-| `report_figures/figure_data.xlsx` | Data for E1–E3. Sheet `Sources` lists the source files and how each sheet was made |
-| `workflow/05_report_figures.ipynb` | Colab notebook: draws and shows the figures, downloads them as a zip |
-
-## View the figures
-
-Open the Colab badge above and run the cells. The figures are shown in the notebook.
-Locally: `python report_figures/make_figures.py` (needs numpy, pandas, openpyxl, matplotlib).
-Output: `report_figures/output/` with one PDF and PNG per figure and `all_figures.pdf`.
-
-## Edit the figures
-
-- **Format** (font, column width, font size, colors, file types): `CONFIG` in `make_figures.py`.
-- **Content** (labels, layout of one figure): its `fig_*` function.
-- **Data**: the sheet of `figure_data.xlsx`.
-
-| Report figure | Function | Sheet |
+| File | Figure | Data sheet |
 |---|---|---|
-| Fig. 1 Tank, cameras, coordinate frames | `fig_1` | — (geometry in the code) |
-| Fig. 2 Processing pipeline | `fig_2` | — |
-| Fig. B1 Single-camera reconstruction | `fig_B1` | — |
-| Fig. E1 18 static points, error vectors | `fig_E1` | `E1` |
-| Fig. E2 Output limits of trailing gaps | `fig_E2` | `E2`, `E2_interior` |
-| Fig. E3 Representative case (trial 9) | `fig_E3` | `E3` |
+| `fig_1_setup.py` | Fig. 1 Tank, cameras, coordinate frames | — (geometry in the code) |
+| `fig_2_pipeline.py` | Fig. 2 Processing pipeline | — |
+| `fig_B1_reconstruction.py` | Fig. B1 Single-camera reconstruction | — |
+| `fig_E1_static_points.py` | Fig. E1 18 static points, error vectors | `E1` |
+| `fig_E2_trailing_gaps.py` | Fig. E2 Output limits of trailing gaps | `E2`, `E2_interior` |
+| `fig_E3_case_trial9.py` | Fig. E3 Representative case (trial 9) | `E3` |
+| `style.py` | Shared format (`CONFIG`, colors `C`) and helpers | |
+| `make_all.py` | Draws all figures into `output/all_figures.pdf` | |
+| `figure_data.xlsx` | Data; sheet `Sources` lists the source files | |
+
+## Draw
+
+- One figure: `python fig_E2_trailing_gaps.py` → `output/fig_E2_trailing_gap.pdf`, `.png`
+- All figures: `python make_all.py` (or `python make_all.py E2 E3`)
+- Colab: open the badge above and run the cells.
+
+Requires numpy, pandas, openpyxl, matplotlib.
+
+## Edit
+
+- Content of one figure (labels, sizes, layout): its `fig_*.py` file, function `draw()`.
+- Format of all figures (font, column width, font size, colors, file types): `style.py`.
+- Data: the sheet of `figure_data.xlsx`.
 
 ## Notes
 
